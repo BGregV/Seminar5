@@ -1,11 +1,26 @@
-﻿Console.Write("Введите число: ");
-int chislo = int.Parse(Console.ReadLine() ?? "0");
-double result = 0;
-int i = 0;
-while (chislo != 0)
+﻿//Написать программу масштабирования фигуры
+
+double[] massiv_coordinat_s_mashtabom(string[] num, double k)
 {
-    result = result + (chislo % 2 * Math.Pow(10, i));
-    chislo = chislo / 2;
-    i++;
+    double[] mas = new double[num.Length];
+    for (int ind = 0; ind < num.Length; ind++)
+    {
+        mas[ind] = (double.Parse(num[ind])) * k;
+    }
+    return mas;
 }
-Console.WriteLine(result);
+
+void Pechat_Massiva(double[] massiv)
+{
+    for (int i = 0; i < massiv.Length; i+=2)
+    {
+        Console.Write($"({massiv[i]}, {massiv[i+1]})  ");
+    }
+}
+
+Console.Write("Введите координаты точек фигуры через запятую ',': ");
+string[] num = (Console.ReadLine() ?? "0").Split(',');
+Console.Write("Введите коэфициент масштабирования: ");
+double k = double.Parse(Console.ReadLine() ?? "0");
+double[] mash_koor = massiv_coordinat_s_mashtabom(num, k);
+Pechat_Massiva(mash_koor);
