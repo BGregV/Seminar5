@@ -1,8 +1,19 @@
-﻿//являются ли три числа сторонами треугольника
-Console.Write("Введите первое число: ");
-int chislo1 = int.Parse(Console.ReadLine() ?? "0");
-Console.Write("Введите второе число: ");
-int chislo2 = int.Parse(Console.ReadLine() ?? "0");
-Console.Write("Введите третье число: ");
-int chislo3 = int.Parse(Console.ReadLine() ?? "0");
-Console.Write((chislo1+chislo2>chislo3 && chislo1+chislo3>chislo2 && chislo2+chislo3>chislo1)? "Числа являются сторонами треугольника" : "Числа не являются сторонами треугольника");
+﻿//Найти точку пересечения двух прямых заданных уравнением y = k1 * x + b1, y = k2 * x + b2, b1 k1 и b2 и k2 заданы
+
+Console.Write("Введите k1: ");
+double k1 = double.Parse(Console.ReadLine() ?? "0");
+
+Console.Write("Введите b1: ");
+double b1 = double.Parse(Console.ReadLine() ?? "0");
+
+Console.Write("Введите k2: ");
+double k2 = double.Parse(Console.ReadLine() ?? "0");
+
+Console.Write("Введите b2: ");
+double b2 = double.Parse(Console.ReadLine() ?? "0");
+
+
+double x = (b2-b1)/(k1-k2);
+double y = k1*((b2-b1)/(k1-k2))+b1;
+
+Console.WriteLine($"Прямые пересекутся в точке с координатами ({x}, {y})");
